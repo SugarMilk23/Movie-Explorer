@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.4",
+    "axios": "^1.7.3",
+    "nuxt": "^3.12.4",
+    "nuxt-app": "file:",
+    "pinia": "^2.2.2",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}
