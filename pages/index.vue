@@ -4,7 +4,8 @@ import { ref, watch, onMounted } from 'vue';
 
 
 
-const searchByTitle = ref<string>("");
+const searchByTitle = inject('searchByTitle', ref<string>(""));
+
 const searchResults = ref<any>([]);
 const movies = ref<any>([]);
 
@@ -58,7 +59,8 @@ watch([currentResultsPage], async () => {
   
 });
 
-watch(searchByTitle, async () => {
+const watcherForSearchByTitle = async()=>{
+ console.log("watcher is triggered")
   if (searchByTitle.value === "") {
     // Clear session storage when searchByTitle is empty
     sessionStorage.removeItem("searchByTitle");
@@ -81,12 +83,17 @@ watch(searchByTitle, async () => {
     // Update session storage
     sessionStorage.setItem("searchByTitle", searchByTitle.value);
     sessionStorage.setItem("currentResultsPage", JSON.stringify(currentResultsPage.value));
-  }
+  }} 
+
+watch(searchByTitle, async () => {
+  watcherForSearchByTitle()
+
+
 });
 
 
 // Handle initialization on mount
-onMounted(() => {
+onMounted(async() => {
   const savedPage = sessionStorage.getItem('currentPage');
   const savedResultsPage = sessionStorage.getItem('currentResultsPage');
   
@@ -97,9 +104,13 @@ onMounted(() => {
   if (savedResultsPage) {
     isMounted.value = true;
     currentResultsPage.value = JSON.parse(savedResultsPage);
+    // searchByTitle.value = ""; // Temporarily set to an empty string
     searchByTitle.value = sessionStorage.getItem('searchByTitle') || "";
+    console.log(searchByTitle.value)
+    watcherForSearchByTitle()
   }
 });
+
 
 // Page navigation
 const goToPage = (page: number) => {
@@ -114,6 +125,8 @@ const goToResultsPage = (page: number) => {
   }
 };
 </script>
+
+
 
 
 <template>
@@ -334,7 +347,7 @@ input[type="number"] {
 
 
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
   .search {
     left: 50%;
     transform: translateX(-50%);

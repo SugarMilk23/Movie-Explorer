@@ -2,13 +2,9 @@
 import { useRoute } from "vue-router";
 
 const { id } = useRoute().params;
-console.log("ID from route:", id); // Check what ID is being passed
 
 //fetch movie detail
 const { data: detail, error } = await useFetch<any>(`/api/detail/${id}`);
-console.log("Fetched detail:", detail.value);
-console.log("Error (if any):", error.value);
-
 //fetch trailer
 </script>
 
@@ -104,7 +100,7 @@ console.log("Error (if any):", error.value);
   position: relative;
   display: flex;
   width: 100%;
-  height: 680px; /* Adjust height as needed */
+  height: 695px; /* Adjust height as needed */
   background-size: cover;
 }
 
@@ -126,10 +122,11 @@ console.log("Error (if any):", error.value);
 
 .poster {
   display: flex;
-  width: 25%;
-  height: 540px;
+  width: 23%;
+  height: 525px;
   border-radius: 10px;
   top: 10%;
+  margin-left: 20px;
 }
 
 .content {
@@ -264,7 +261,7 @@ h3 {
   padding-top: 5px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
   .background_image {
     height: 500px; /* Adjust the height for tablets */
   }

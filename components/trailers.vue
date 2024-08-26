@@ -75,7 +75,22 @@ const iframeStyles = computed(() => ({
   display: flex;
   width: 95%;
   overflow-x: auto;
-  margin: 10px auto 0px auto;
+  padding-bottom: 20px;
+  margin: 10px auto 10px auto;
+  scroll-snap-type: x mandatory;
+}
+
+.trailers_container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.trailers_container::-webkit-scrollbar-track {
+  background: black;
+}
+
+.trailers_container::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, rgb(210, 210, 210), red);
+  border-radius: 10px;
 }
 
 .trailers {
@@ -83,6 +98,7 @@ const iframeStyles = computed(() => ({
   margin: 0px auto;
   padding-left: 10px;
   width: 300px;
+  scroll-snap-align: start;
 }
 
 .error {

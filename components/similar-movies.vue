@@ -57,12 +57,27 @@ h1 {
 .movies {
   display: flex;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.movies::-webkit-scrollbar {
+  height: 8px;
+}
+
+.movies::-webkit-scrollbar-track {
+  background: black;
+}
+
+.movies::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, rgb(210, 210, 210), red);
+  border-radius: 10px;
 }
 
 .movie {
   display: flex;
   flex-direction: column;
   margin: 5px 5px 5px 5px;
+  scroll-snap-align: start;
 }
 
 .movie:hover {
