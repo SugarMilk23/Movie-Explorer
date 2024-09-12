@@ -233,7 +233,7 @@ const goToResultsPage = (page: number) => {
 
 
 h1{
-  
+
     margin-left: 25px;
     font-family: 'Arial', sans-serif;
     font-weight: 600;
@@ -363,7 +363,7 @@ input[type="number"] {
   .search {
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 50px;
+    margin-top: 56px;
   }
 
   .movies {
@@ -383,6 +383,7 @@ input[type="number"] {
   }
 
   h1 {
+    margin-top: 35px;
     font-size: 32px;
   }
 

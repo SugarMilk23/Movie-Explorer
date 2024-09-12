@@ -24,6 +24,8 @@ app.use(
       "http://localhost:3000",
     ], // Allow this origin
     credentials: true, // Enable credentials (cookies, authorization headers, TLS client certificates)
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
@@ -97,6 +99,7 @@ const authenticateUser = (
 ) => {
   const token = req.cookies.token;
   if (!token) {
+    console.log("No token provided");
     return res.status(401).json({ message: "User unauthorized" });
   }
 
@@ -169,6 +172,8 @@ app.post("/login", async (req, res) => {
     });
     res.cookie("token", token, {
       sameSite: "none",
+      secure: true, // for HTTPS]
+      maxAge: 256 * 60 * 60 * 1000, //256hours
       httpOnly: true, // This ensures the cookie cannot be accessed via client-side JavaScript
     });
 
