@@ -233,6 +233,7 @@ const goToResultsPage = (page: number) => {
 
 
 h1{
+    margin-top: 20px;
     margin-left: 25px;
     font-family: 'Arial', sans-serif;
     font-weight: 600;
