@@ -1,1 +1,52 @@
-//Movie Explorer app , allows you to search and explore the trending movies
+<img width="928" alt="image" src="https://github.com/user-attachments/assets/856e7d45-dcd0-444c-9ec9-af8a9cd10939">
+<img width="926" alt="image" src="https://github.com/user-attachments/assets/b66865b5-6d37-4d7b-8e93-9e97b32a4679">
+
+**概要**
+現在トレンド入りの映画を確認、調べることができるサイトになります。映画をごとの情報(言語、カテゴリー、予告、あらすじ etc)を見ることができます。
+また、ユーザー登録をし、映画に評価付けることができます。
+
+**技術構成**
+フロントエンド：Nuxt.js(nuxt@3.13.1)/Vue.js 、TypeScript
+バックエンド　：Node.js(v20.12.2)/Express(4.17.21)、Mysql(Ver 8.0.37)
+その他　　　　：TypeORM(^0.3.20)、Docker
+
+**機能一覧**
+・映画情報
+　　ートレンド入りの映画を確認
+
+・映画詳細
+　　ー映画の詳細情報を確認
+    ー当該映画の予告閲覧
+    ー関連映画の確認
+
+・映画検索機能
+　　ー調べたい映画をタイトルでリアルタイム検索
+
+・ユーザー関連
+　　ーユーザーを新規登録、ログイン、ログアウト
+
+・評価機能
+　　ー映画に1~5の星マークを付け、記録
+
+・評価をつけた映画の確認 
+  ー評価を付けた映画の情報を確認
+　　
+
+
+**レスポンシブ対応**
+<img width="214" alt="image" src="https://github.com/user-attachments/assets/a0f59069-b6e2-4c2b-9c1f-6371d4790a39">
+スマートフォンサイズ
+
+<img width="278" alt="image" src="https://github.com/user-attachments/assets/5da0cee1-f29d-4cc8-9c7a-7f35f40f6690">
+タブレットサイズ
+
+
+**改善したいところ**
+・Java Spring Bootでバックエンドを書き直すこと(都合上の関係で途中までしか進めませんでした)
+・カテゴリーごとに映画を表示する機能の実装
+・プロファイルをカスタマイズする機能の実装(ユーザー情報変更、プロファイル写真を設定 etc)
+・見たい映画をリストを入れる機能の実装
+・映画の評価は星マークだけでなく、コメントを付けられる機能の実装
+・グラフデータベース(JanusGraph)を導入し、ユーザーがつけた評価の情報をグラフデータベースで管理することで、異なるユーザーの共通点を分析し、おすすめ映画を表示する機能の実装
+・コードのリファクタリング
+
