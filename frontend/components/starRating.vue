@@ -2,6 +2,8 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 
+const isLoggedIn = ref(false);
+
 class StarRating {
   private ratings: { id: number; name: string }[];
   private rating: { id: number; name: string } | null;
@@ -88,21 +90,17 @@ const baseUrl = "https://movie-explorer-api-4ezv.onrender.com";
 
 const rate = async (rating: number) => {
   try {
+    if (!isLoggedIn.value) {
+      window.alert("Please login first");
+      return;
+    }
     const data = { title: props.title, rating: rating, movieId: props.movieId };
     const response = await axios.post(baseUrl + "/rate", data, {
       withCredentials: true,
     });
-    if (response.data.status === 401) {
-      window.alert("Please login first");
-      new StarRating("form.rating");
-    }
     console.log(data);
-  } catch (e: any) {
+  } catch (e) {
     console.error(e);
-    if (e.response.status === 401) {
-      window.alert("Please login first");
-      new StarRating("form.rating");
-    }
   }
 };
 
@@ -136,7 +134,13 @@ const updateStarDisplay = (rating: number) => {
   }
 };
 
-onMounted(() => {
+onMounted(async () => {
+  const response = await axios.get(baseUrl + "/authenticate-user", {
+    withCredentials: true,
+  });
+  if (response.status === 200) {
+    isLoggedIn.value = true;
+  }
   getRating();
 });
 </script>
