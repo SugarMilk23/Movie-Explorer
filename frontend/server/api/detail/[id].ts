@@ -4,7 +4,8 @@ export default defineEventHandler(async (e) => {
   const { id } = e.context.params as { id: string };
   console.log("Received ID:", id); // Check what ID is being received
 
-  const { token } = useRuntimeConfig();
+  const config = useRuntimeConfig();
+  const token = config.public.token;
   const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
 
   try {
