@@ -68,8 +68,14 @@ onMounted(async () => {
   <div class="container">
     <h1>Rated Movies</h1>
     <div class="carousel-container">
-      <button class="nav-button prev" @click="scrollCarousel(-1)">&lt;</button>
-      <div class="carousel-view">
+      <button
+        class="nav-button prev"
+        @click="scrollCarousel(-1)"
+        v-if="ratedMovies.length > 0"
+      >
+        &lt;
+      </button>
+      <div class="carousel-view" v-if="ratedMovies.length > 0">
         <div
           class="rated-movies-container"
           ref="carouselRef"
@@ -130,7 +136,16 @@ onMounted(async () => {
           </div>
         </div>
       </div>
-      <button class="nav-button next" @click="scrollCarousel(1)">&gt;</button>
+      <button
+        class="nav-button next"
+        @click="scrollCarousel(1)"
+        v-if="ratedMovies.length > 0"
+      >
+        &gt;
+      </button>
+    </div>
+    <div v-if="ratedMovies.length == 0">
+      <p class="errorMessage">No rated movies yet</p>
     </div>
   </div>
 </template>
@@ -217,5 +232,14 @@ p {
 
 .next {
   right: -30px;
+}
+
+.errorMessage {
+  margin-top: 150px;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  font-family: "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 </style>
