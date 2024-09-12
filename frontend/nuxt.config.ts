@@ -1,6 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+  ssr: true, // Ensure SSR is enabled
+  // Remove this line
+  // target: "server",
+  // Modify the router configuration
   app: {
     head: {
       link: [
@@ -15,6 +19,13 @@ export default defineNuxtConfig({
         },
         // ...other link tags
       ],
+    },
+  },
+  // Update router configuration
+  router: {
+    options: {
+      // Use this instead of fallback
+      strict: false,
     },
   },
   compatibilityDate: "2024-04-03",
