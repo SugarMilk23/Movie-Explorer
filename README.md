@@ -11,7 +11,7 @@
 ## 技術構成
 - **フロントエンド**: Nuxt.js (nuxt@3.13.1) / Vue.js、TypeScript  
 - **バックエンド**: Node.js (v20.12.2) / Express (4.17.21)、MySQL (Ver 8.0.37)  
-- **その他**: TypeORM (0.3.20)、Docker  
+- **その他**: TypeORM (0.3.20)、Docker、AWS
 
 ## 機能一覧
 - **トレンド映画情報**:
