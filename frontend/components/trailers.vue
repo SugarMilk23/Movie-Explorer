@@ -6,9 +6,11 @@ console.log("trailer : ", trailer);
 
 let videoKeys: string[] = [];
 
-for (let result of trailer.value.results) {
-  if (result.key) {
-    videoKeys.push(result.key);
+if (trailer.value && trailer.value.results) {
+  for (let result of trailer.value.results) {
+    if (result.key) {
+      videoKeys.push(result.key);
+    }
   }
 }
 
@@ -34,7 +36,11 @@ const iframeStyles = computed(() => ({
       <p>Trailers</p>
     </div>
     <div class="trailers_container" v-if="limitedVideoKeys.length > 0">
-      <div class="trailers" v-for="videoKey in limitedVideoKeys">
+      <div
+        class="trailers"
+        v-for="videoKey in limitedVideoKeys"
+        :key="videoKey"
+      >
         <iframe
           :src="`https://www.youtube.com/embed/${videoKey}`"
           title="YouTube video player"

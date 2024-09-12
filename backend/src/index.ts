@@ -19,7 +19,10 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://movie-explorer-j8p4.onrender.com", // Allow this origin
+    origin: [
+      "https://movie-explorer-j8p4.onrender.com",
+      "http://localhost:3000",
+    ], // Allow this origin
     credentials: true, // Enable credentials (cookies, authorization headers, TLS client certificates)
   })
 );
