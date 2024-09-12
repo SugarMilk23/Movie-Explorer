@@ -84,7 +84,7 @@ const props = defineProps<{
   movieId: number;
 }>();
 
-const baseUrl = "http://localhost:3100";
+const baseUrl = "https://movie-explorer-api-4ezv.onrender.com";
 
 const rate = async (rating: number) => {
   try {
