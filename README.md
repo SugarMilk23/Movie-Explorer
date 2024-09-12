@@ -34,6 +34,10 @@
 - **タブレットサイズ**  
   ![タブレットサイズ](https://github.com/user-attachments/assets/5da0cee1-f29d-4cc8-9c7a-7f35f40f6690)  
 
+## デプロイ環境
+- フロントエンドとAPIはRenderの Web Serviceに
+- データベースは、開発の時はローカルのDockerコンテナーで動かしていましたが、デプロイの時はAWSのRDSにしました。
+
 ## 改善予定
 - バックエンドをJava Spring Bootに書き直す（現在は途中まで）  
 - カテゴリー別の映画表示機能の実装  
