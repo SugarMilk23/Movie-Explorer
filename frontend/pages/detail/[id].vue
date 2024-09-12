@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 
-const { id } = useRoute().params;
+const route = useRoute();
+const { id } = route.params;
 
-//fetch movie detail
+// Fetch movie detail
 const { data: detail, error } = await useFetch<any>(`/api/detail/${id}`);
-console.log(detail.value);
+
+// Add this for debugging
+console.log("Production Companies:", detail.value?.production_companies);
 </script>
 
 <template>
@@ -68,23 +71,22 @@ console.log(detail.value);
     <div class="production_companies">
       <p>Production Companies</p>
     </div>
-    <div class="companies" v-if="detail.production_companies.length > 0">
+    <div class="companies" v-if="detail.production_companies?.length">
       <div
         class="company"
         v-for="company in detail.production_companies"
-        v-if="detail.production_companies.logo_path"
-        v-show="company.logo_path"
         :key="company.id"
       >
         <img
-          :src="'https://image.tmdb.org/t/p/w500' + company.logo_path"
-          alt="logo"
+          v-if="company.logo_path"
+          :src="`https://image.tmdb.org/t/p/w500${company.logo_path}`"
+          :alt="company.name"
         />
-        <p>{{ company?.name }}</p>
+        <p>{{ company.name }}</p>
       </div>
-      <div v-else class="error">
-        <p>⚠️Production companies not available⚠️</p>
-      </div>
+    </div>
+    <div v-else class="error">
+      <p>⚠️Production companies not available⚠️</p>
     </div>
     <SimilarMovies />
   </div>
@@ -228,31 +230,32 @@ h3 {
 
 .companies {
   display: flex;
-  width: 100%;
-  overflow-x: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
 }
 
 .company {
-  display: inline-block;
-  height: fit-content;
-  margin: 30px auto 0px auto;
-  padding-left: 2px;
-  padding-right: 5px;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 150px;
 }
 
 .company img {
-  display: flex;
-  width: 140px;
+  width: 100px;
+  height: 60px;
+  object-fit: contain;
   background-color: white;
-  opacity: 0.9;
-  margin: 10px auto 10px auto;
-  height: 70px;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .company p {
+  margin-top: 10px;
   text-align: center;
-  width: 195px;
+  max-width: 120px;
 }
 
 .error {
