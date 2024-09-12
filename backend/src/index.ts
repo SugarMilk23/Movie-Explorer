@@ -44,6 +44,7 @@ const db = new DataSource({
 db.initialize()
   .then(() => {
     console.log("db has been initialized");
+    return db.synchronize(); // This will create the tables
   })
   .catch((e) => {
     console.error(e);

@@ -25,8 +25,8 @@ const signUp = async () => {
         email: email.value,
         password: password.value,
       };
-      console.log("user name : ", userName.value + "sign up succesfully");
       await axios.post(baseUrl + "/sign-up", signInInfo);
+      console.log("user name : ", userName.value + "sign up succesfully");
       alert("New account created");
       window.location.href = "/login";
       userName.value = "";
