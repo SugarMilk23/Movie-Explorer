@@ -1,0 +1,70 @@
+version: "3.8"
+
+services:
+  # cassandra:
+  # image: cassandra:4.0
+  # container_name: cassandra
+  # ports:
+  # - "9042:9042"
+  # environment:
+  # CASSANDRA_CLUSTER_NAME: "janusgraph_cluster"
+  # volumes:
+  # - cassandra_data:/var/lib/cassandra
+  # networks:
+  # - janusgraph-network
+
+  # janusgraph:
+  # image: janusgraph/janusgraph:0.6.0
+  # container_name: janusgraph
+  # ports:
+  # - "8182:8182"
+  # environment:
+  # - storage.backend=cassandra
+  # - storage.hostname=cassandra
+  # - storage.cassandra.keyspace=janusgraph
+  # depends_on:
+  # - cassandra
+  # networks:
+  # - janusgraph-network
+
+  db:
+    image: mysql:8.0.37
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: movie_explorer
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --init-connect='SET NAMES utf8mb4'
+
+    # networks:
+    # - janusgraph-network
+
+  # api:
+  # build: .
+  # container_name: express-backend
+  # ports:
+  # - "3100:3100"
+  # command: npm run dev
+  # depends_on:
+  # - janusgraph
+  # - db
+  # networks:
+  # - janusgraph-network
+
+volumes:
+  # cassandra_data:
+  db_data:
+# networks:
+# janusgraph-network:
+# driver: bridge
+#
