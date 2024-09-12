@@ -233,6 +233,23 @@ h3 {
   overflow-x: auto;
 }
 
+.companies::-webkit-scrollbar {
+  height: 8px;
+}
+
+.companies::-webkit-scrollbar-track {
+  background: black;
+}
+
+.trailers_container::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, rgb(210, 210, 210), red);
+  border-radius: 10px;
+}
+
+.companies::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}
+
 .company {
   display: inline-block;
   height: fit-content;
