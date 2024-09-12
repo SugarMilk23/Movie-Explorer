@@ -1,18 +1,23 @@
 <script setup lang="ts">
 const { id } = useRoute().params;
 
-const { data: trailer } = await useFetch<any>(`/api/trailer/${id}`);
-console.log("trailer : ", trailer);
-
 let videoKeys: string[] = [];
 
-if (trailer.value && trailer.value.results) {
-  for (let result of trailer.value.results) {
-    if (result.key) {
-      videoKeys.push(result.key);
+onMounted(async () => {
+  const { data: trailer, error } = await useFetch<any>(`/api/trailer/${id}`);
+  console.log("trailer : ", trailer);
+  if (error.value) {
+    console.error("Error fetching trailer:", error.value);
+  }
+
+  if (trailer.value && trailer.value.results) {
+    for (let result of trailer.value.results) {
+      if (result.key) {
+        videoKeys.push(result.key);
+      }
     }
   }
-}
+});
 
 // Computed property to limit the number of trailers to 10 for better performance
 const limitedVideoKeys = computed(() => {
