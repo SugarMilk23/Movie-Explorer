@@ -5,6 +5,7 @@ const { id } = useRoute().params;
 
 //fetch movie detail
 const { data: detail, error } = await useFetch<any>(`/api/detail/${id}`);
+console.log(detail.value);
 </script>
 
 <template>
@@ -67,7 +68,7 @@ const { data: detail, error } = await useFetch<any>(`/api/detail/${id}`);
     <div class="production_companies">
       <p>Production Companies</p>
     </div>
-    <div class="companies">
+    <div class="companies" v-if="detail.production_companies.length > 0">
       <div
         class="company"
         v-for="company in detail.production_companies"

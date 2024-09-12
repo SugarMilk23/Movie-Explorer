@@ -3,22 +3,6 @@ const { id } = useRoute().params;
 
 let videoKeys: string[] = [];
 
-// onMounted(async () => {
-// const { data: trailer, error } = await useFetch<any>(`/api/trailer/${id}`);
-// console.log("trailer : ", trailer);
-// if (error.value) {
-// console.error("Error fetching trailer:", error.value);
-// }
-//
-// if (trailer.value && trailer.value.results) {
-// for (let result of trailer.value.results) {
-// if (result.key) {
-// videoKeys.push(result.key);
-// }
-// }
-// }
-// });
-
 // Computed property to limit the number of trailers to 10 for better performance
 const limitedVideoKeys = computed(() => {
   const { data: trailer, error } = useFetch<any>(`/api/trailer/${id}`);
