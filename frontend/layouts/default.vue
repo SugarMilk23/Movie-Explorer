@@ -4,7 +4,7 @@ import LogoutModal from "../components/logout.vue";
 
 //THE PROVIDE AND INJECT WAY WITHOUT PINIA
 
-const baseUrl = "https://movie-explorer-api-4ezv.onrender.com";
+const baseUrl = "http://localhost:3100";
 const searchByTitle = ref<string>("");
 
 const clearSearchByTitle = () => {

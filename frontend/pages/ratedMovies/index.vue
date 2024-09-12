@@ -11,7 +11,7 @@ interface RatedMovie {
 }
 
 const ratedMovies = ref<RatedMovie[]>([]);
-const baseUrl = "https://movie-explorer-api-4ezv.onrender.com";
+const baseUrl = "http://localhost:3100";
 
 const fetchRatedMovies = async () => {
   const response = await axios.get(`${baseUrl}/rated-movies`, {

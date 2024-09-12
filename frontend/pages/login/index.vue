@@ -10,7 +10,7 @@ const toggleForm = () => {
   isLogIn.value = !isLogIn.value;
 };
 
-const baseUrl = "https://movie-explorer-api-4ezv.onrender.com";
+const baseUrl = "http://localhost:3100";
 
 const userName = ref("");
 const email = ref("");
