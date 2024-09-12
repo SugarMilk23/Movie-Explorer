@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  ssr: false, // Change to false for static site generation
+  ssr: true, // Enable server-side rendering
   nitro: {
-    preset: "static",
+    preset: "node-server", // Use Node.js server preset
   },
   app: {
     head: {
