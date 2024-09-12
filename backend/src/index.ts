@@ -168,6 +168,7 @@ app.post("/login", async (req, res) => {
       expiresIn: "256h", // Token expires in 1 hour
     });
     res.cookie("token", token, {
+      sameSite: "none",
       httpOnly: true, // This ensures the cookie cannot be accessed via client-side JavaScript
     });
 
