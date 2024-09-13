@@ -3,6 +3,11 @@
 <img width="928" alt="image" src="https://github.com/user-attachments/assets/856e7d45-dcd0-444c-9ec9-af8a9cd10939">
 <img width="926" alt="image" src="https://github.com/user-attachments/assets/b66865b5-6d37-4d7b-8e93-9e97b32a4679">
 
+- **ログインしてから使えるサイドバー**  
+  ![ログインしてから使えるサイドバー](https://github.com/user-attachments/assets/7eb18320-e09d-4f3a-a130-9d0d043ef7c8)
+
+
+
 
 ## 概要
 このサイトでは、現在トレンド入りしている映画を確認・調べることができます。  
@@ -26,7 +31,10 @@
   - 新規登録、ログイン、ログアウト  
 - **評価機能**: 
   - 映画に1~5の星で評価  
-  - 評価を付けた映画の一覧表示  
+  - 評価を付けた映画の一覧表示
+
+ - **サイドバー**
+   -ログインしてから使えるページ遷移
 
 ## レスポンシブ対応
 - **スマートフォンサイズ**  
