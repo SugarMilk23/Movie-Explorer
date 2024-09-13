@@ -43,6 +43,7 @@ const authenticateUser = async () => {
     isAuthenticated.value = true;
   } else {
     isAuthenticated.value = false;
+    console.log("Unauthorized , not showing sidebar");
   }
 };
 
