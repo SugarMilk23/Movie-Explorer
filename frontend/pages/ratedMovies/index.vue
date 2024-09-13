@@ -162,7 +162,7 @@ h1 {
 .carousel-container {
   margin: 0 auto;
   position: relative;
-  width: 920px;
+  width: 90%;
 }
 
 .carousel-view {
@@ -174,6 +174,7 @@ h1 {
   display: flex;
   transition: transform 0.5s ease;
   padding: 40px 0;
+  width: 100%;
 }
 
 .ratedMovie {
@@ -243,22 +244,13 @@ p {
   font-family: "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-@media (max-width: 1024px) {
-  .carousel-container {
-    width: 720px;
-  }
+@media (max-width: 800px) {
   img {
     height: 240px;
   }
 
   h3 {
     font-size: 16px;
-  }
-}
-
-@media (max-width: 468px) {
-  .carousel-container {
-    width: 290px;
   }
 }
 </style>
