@@ -7,6 +7,10 @@
   ![ログインしてから使えるサイドバー](https://github.com/user-attachments/assets/7eb18320-e09d-4f3a-a130-9d0d043ef7c8)
 
 
+- **星評価をつけた映画の履歴**  
+  ![星評価をつけた映画の履歴](https://github.com/user-attachments/assets/d1abd50f-7f7a-413e-a32a-316511a821ef)
+
+
 
 
 ## 概要
