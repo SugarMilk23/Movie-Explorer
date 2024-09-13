@@ -242,4 +242,14 @@ p {
   font-weight: bold;
   font-family: "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
+@media (max-width: 768px) {
+  img {
+    height: 240px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+}
 </style>
