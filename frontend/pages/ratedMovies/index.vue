@@ -162,7 +162,7 @@ h1 {
 .carousel-container {
   margin: 0 auto;
   position: relative;
-  width: 90%;
+  width: 920px;
 }
 
 .carousel-view {
@@ -243,13 +243,22 @@ p {
   font-family: "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .carousel-container {
+    width: 720px;
+  }
   img {
     height: 240px;
   }
 
   h3 {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 468px) {
+  .carousel-container {
+    width: 290px;
   }
 }
 </style>
