@@ -367,7 +367,7 @@ footer {
     margin-left: -10px;
   }
   .info a {
-    font-size: 9px;
+    font-size: 10px;
     width: 70px;
     border-radius: 20%;
     margin: 5px;

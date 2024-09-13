@@ -233,7 +233,6 @@ const goToResultsPage = (page: number) => {
 
 
 h1{
-
     margin-left: 25px;
     font-family: 'Arial', sans-serif;
     font-weight: 600;
@@ -404,6 +403,7 @@ input[type="number"] {
 }
 
 @media screen and (max-width: 465px) {
+
   .search {
     left: 50%;
     transform: translateX(-50%);
@@ -416,8 +416,9 @@ input[type="number"] {
   }
 
   h1{
+    margin-bottom: 10px;
     font-size: 18px;
-    margin-top: 60px;
+    margin-top: 70px;
     width: 100%;
   }
   .movies {
